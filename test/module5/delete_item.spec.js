@@ -2,10 +2,10 @@ const fs = require('fs');
 const expect = require('expect.js');
 
 describe('Deleting a product', () => {
-    it('Add a controler to remove a product @controller-remove', (done) => {
+    it('Add a controller to remove a product @controller-remove', (done) => {
         try {
             expect(fs.readFileSync('src/controllers/controllers.js').toString())
-                .to.contain("Product.deleteOne({ _id: req.params.ProductID}, (err, Product) => {")
+                .to.contain("Product.deleteOne({ _id: req.params.productId }, (err, product) => {")
             expect(fs.readFileSync('src/controllers/controllers.js').toString())
                 .to.contain("res.json({ message: 'successfully deleted product' });")
             done();

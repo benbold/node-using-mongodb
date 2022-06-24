@@ -31,3 +31,21 @@ export const getProductById = (req, res) => {
     res.json(product);
   });
 };
+
+export const updateProduct = (req, res) => {
+  Product.findOneAndUpdate({ _id: req.params.productId }, req.body, { new: true, useFindAndModify: false }, (err, product) => {
+    if (err) {
+      res.send(err);
+    }
+    res.json(product);
+  });
+};
+
+export const deleteProduct = (req, res) => {
+  Product.deleteOne({ _id: req.params.productId }, (err, product) => {
+    if (err) {
+      res.send(err);
+    }
+    res.json({ message: 'successfully deleted product' });
+  });
+};

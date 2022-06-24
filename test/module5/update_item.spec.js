@@ -5,8 +5,8 @@ describe('Updating a product', () => {
     it('Add a controler to update a product @controller-update', (done) => {
         try {
             expect(fs.readFileSync('src/controllers/controllers.js').toString())
-            .to.contain("Product.findOneAndUpdate({ _id: req.params.ProductID }, req.body, { new: true, useFindAndModify: false }, (err, Product)")
-            done(); 
+            .to.contain("Product.findOneAndUpdate({ _id: req.params.productId }, req.body, { new: true, useFindAndModify: false }, (err, product)")
+            done();
         } catch (error) {
             done(new Error("No controllers for PUT endpoint detected"));
         }
