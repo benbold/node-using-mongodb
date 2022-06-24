@@ -8,7 +8,7 @@ describe('Creating documents', () => {
             .to.contain("export const ProductSchema = new Schema({")
             expect(fs.readFileSync('src/models/models.js').toString())
                 .to.contain("const Schema = mongoose.Schema;")
-            done();      
+            done();
         } catch (error) {
             done(new Error("No schema detected in your code"));
         }
@@ -17,10 +17,10 @@ describe('Creating documents', () => {
     it('creates controler for route @controller-create', (done) => {
         try {
             expect(fs.readFileSync('src/controllers/controllers.js').toString())
-            .to.contain("export const addnewProduct = (req, res) => {")
+            .to.contain("export const addNewProduct = (req, res) => {")
             expect(fs.readFileSync('src/controllers/controllers.js').toString())
                 .to.contain("newProduct.save((err, Product) => {")
-            done(); 
+            done();
         } catch (error) {
             done(new Error("No controllers for POST endpoint detected"));
         }
@@ -31,8 +31,8 @@ describe('Creating documents', () => {
             expect(fs.readFileSync('src/routes/routes.js').toString())
             .to.contain("app.route('/products')")
             expect(fs.readFileSync('src/routes/routes.js').toString())
-                .to.contain(".post(addnewProduct);")
-            done(); 
+                .to.contain(".post(addNewProduct);")
+            done();
         } catch (error) {
             done(new Error("No routes for POST endpoint detected"));
         }
