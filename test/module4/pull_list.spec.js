@@ -7,8 +7,8 @@ describe('Pulling products', () => {
             expect(fs.readFileSync('src/controllers/controllers.js').toString())
             .to.contain("export const getProducts = (req, res) => {")
             expect(fs.readFileSync('src/controllers/controllers.js').toString())
-                .to.contain("Product.find({}, (err, Product) => {")
-            done();   
+                .to.contain("Product.find({}, (err, product) => {")
+            done();
         } catch (error) {
             done(new Error("No controllers for GET endpoint detected"));
         }
